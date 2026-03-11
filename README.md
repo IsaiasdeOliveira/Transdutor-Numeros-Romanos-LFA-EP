@@ -25,7 +25,7 @@ A escolha pelo modelo de Moore fundamenta-se na clareza da associação entre o 
 
 A modelagem detalhada do Transdutor de Moore, incluindo o diagrama de estados e as transições de salto, pode ser visualizada no link abaixo:
 
- [Visualizar Modelagem e Diagrama Mermaid](./docs/MODELAGEM.md)
+ [Visualizar Modelagem e Diagrama Mermaid](./docs/Modelagem.md)
 
 ## Demonstração de Fluxo e Validação
 
