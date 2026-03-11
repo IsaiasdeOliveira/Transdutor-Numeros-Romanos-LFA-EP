@@ -31,7 +31,7 @@ class ADF
         estado = "q_milhar_3000"; milhar = 3000
 
       # CENTENAS (C, D, M)
-      in ["C", "q_centena_0"]
+      in ["C", "q_centena_0"] | ["C", "q_milhar_0"]
         estado = "q_centena_100"; centena = 100
 
       in ["C", "q_centena_100"]
@@ -43,7 +43,7 @@ class ADF
       in ["D", "q_centena_100"]
         estado = "q_centena_400"; centena = 400
 
-      in ["D", "q_centena_0"]
+      in ["D", "q_centena_0"] | ["D", "q_milhar_0"]
         estado = "q_centena_500"; centena = 500
 
       in ["C", "q_centena_500"]
@@ -59,7 +59,7 @@ class ADF
         estado = "q_centena_900"; centena = 900
 
       # DEZENAS (X, L, C)
-      in ["X", "q_dezena_0"]
+      in ["X", "q_dezena_0"] | ["X", "q_milhar_0"]
         estado = "q_dezena_10"; dezena = 10
 
       in ["X", "q_dezena_10"]
@@ -74,7 +74,7 @@ class ADF
       in ["L", "q_dezena_0"]
         estado = "q_dezena_50"; dezena = 50
 
-      in ["X", "q_dezena_50"]
+      in ["X", "q_dezena_50"] | ["L", "q_milhar_0"]
         estado = "q_dezena_60"; dezena = 60
 
       in ["X", "q_dezena_60"]
@@ -88,7 +88,7 @@ class ADF
 
       # UNIDADES (I, V, X)
       
-      in ["I", "q_unid_0"]
+      in ["I", "q_unid_0"] | ["I", "q_milhar_0"]
         estado = "q_unid_1"; unidade = 1
 
       in ["I", "q_unid_1"]
@@ -100,7 +100,7 @@ class ADF
       in ["V", "q_unid_1"]
         estado = "q_unid_4"; unidade = 4
 
-      in ["V", "q_unid_0"]
+      in ["V", "q_unid_0"] | ["V", "q_milhar_0"]
         estado = "q_unid_5"; unidade = 5
 
       in ["I", "q_unid_5"]
