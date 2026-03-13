@@ -138,34 +138,44 @@ class ADF
       
      in ["", _]
 
+        puts "\n[FIM DA FITA DE ENTRADA]"
+
+        # 1. Mostramos a saída REAL (pura) do autômato primeiro
+
+        puts "Fita de Saída (Símbolos puros): #{milhar} #{centena} #{dezena} #{unidade}"
+
+        # 2. Mostramos a interpretação opcional logo abaixo
+
+        resultado_opcional = milhar.to_i + centena.to_i + dezena.to_i + unidade.to_i
+
+        puts "Interpretação Decimal (Opcional): #{resultado_opcional}"
+
         # OBSERVAÇÃO:
 
-        # O uso de .to_i e a soma (+) abaixo ocorrem APENAS na exibição final.
+        # O uso de .to_i e a soma (+) acima ocorrem apenas como interpretação opcional para uma
+        # interpretação decimal mais humana.
 
         # O autômato (Transdutor) trabalhou exclusivamente com strings (símbolos),
-
-        # sem realizar cálculos aritméticos durante as transições de estado.
+        # sem realizar cálculos aritméticos durante as transições de estado, fazendo 
+        # a concatenação para juntar os símbolos.
 
         # A soma aqui serve apenas para "limpar" os zeros e exibir o resultado formatado.
 
-        '''Por exemplo, se milhar = "2000", centena = "300", dezena = "40" e unidade = "9", a soma  resultará 
-        em 2349, que é a tradução correta do número romano, se não fosse feita a soma, a exibição seria 
-        "2000300409", o que não é desejável.'''
-
-        resultado_exibicao = milhar.to_i + centena.to_i + dezena.to_i + unidade.to_i
+        '''Por exemplo, se tivermos o milhar = "2000", centena = "300", dezena = "40" e unidade = "9", 
+        a soma  resultará em 2349, que é a tradução correta do número romano, se não fosse feita a soma, 
+        a exibição seria "2000300409", o que não é desejável e seria confuso para o usuário.'''
         
-        puts "\n[FIM DA FITA DE ENTRADA]"
-
-        puts "Símbolos emitidos (Gamma): #{milhar} #{centena} #{dezena} #{unidade}"
-        puts "Tradução Final: #{resultado_exibicao}"
         break
 
       else
+
         puts "\nERRO: Transição inválida para o símbolo '#{simbolo}' no estado #{estado}"
+
         break
       end
 
       @indice += 1
+
       puts "Lendo: #{simbolo} -> Novo Estado: #{estado}"
     end
   end
