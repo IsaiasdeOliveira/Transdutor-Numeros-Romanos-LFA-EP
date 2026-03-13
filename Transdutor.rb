@@ -148,6 +148,10 @@ class ADF
 
         # A soma aqui serve apenas para "limpar" os zeros e exibir o resultado formatado.
 
+        '''Por exemplo, se milhar = "2000", centena = "300", dezena = "40" e unidade = "9", a soma  resultará 
+        em 2349, que é a tradução correta do número romano, se não fosse feita a soma, a exibição seria 
+        "2000300409", o que não é desejável.'''
+
         resultado_exibicao = milhar.to_i + centena.to_i + dezena.to_i + unidade.to_i
         
         puts "\n[FIM DA FITA DE ENTRADA]"
