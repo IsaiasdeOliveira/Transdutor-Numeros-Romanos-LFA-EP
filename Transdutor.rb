@@ -13,6 +13,10 @@ class ADF
 
     estado = "q_milhar_0"
 
+    # Variaveis tratadas como strings para representar os simbolos de saida (gamma) do transdutor,
+    # sem realizar operações aritméticas durante as transições de estado, apenas concatenando os simbolos 
+    # para formar a saida final.
+
     milhar = ""; 
 
     centena = ""; 
@@ -72,7 +76,8 @@ class ADF
       in ["X", "q_milhar_0"] | ["X", "q_milhar_1000"] | ["X", "q_milhar_2000"] | ["X", "q_milhar_3000"] | 
          ["X", "q_centena_100"] | ["X", "q_centena_200"] | ["X", "q_centena_300"] | ["X", "q_centena_500"]| 
          ["X", "q_centena_600"] | ["X", "q_centena_700"] | ["X", "q_centena_800"] | ["X", "q_centena_900"]
-        estado = "q_dezena_10"; dezena = "10"
+        
+         estado = "q_dezena_10"; dezena = "10"
 
       in ["X", "q_dezena_10"]
         estado = "q_dezena_20"; dezena = "20"
@@ -86,7 +91,8 @@ class ADF
       in ["L", "q_milhar_0"] | ["L", "q_milhar_1000"] | ["L", "q_milhar_2000"] | ["L", "q_milhar_3000"] |
          ["L", "q_centena_100"] | ["L", "q_centena_200"] | ["L", "q_centena_300"] | ["L", "q_centena_500"]|
          ["L", "q_centena_600"] | ["L", "q_centena_700"] | ["L", "q_centena_800"] | ["L", "q_centena_900"]
-        estado = "q_dezena_50"; dezena = "50"
+        
+         estado = "q_dezena_50"; dezena = "50"
 
       in ["X", "q_dezena_50"]
         estado = "q_dezena_60"; dezena = "60"
@@ -106,7 +112,8 @@ class ADF
          ["I", "q_dezena_10"] | ["I", "q_dezena_20"] | ["I", "q_dezena_30"] | ["I", "q_dezena_40"] |
          ["I", "q_dezena_50"] | ["I", "q_dezena_60"] | ["I", "q_dezena_70"] | ["I", "q_dezena_80"] | 
          ["I", "q_dezena_90"]
-        estado = "q_unid_1"; unidade = "1"
+        
+         estado = "q_unid_1"; unidade = "1"
 
       in ["I", "q_unid_1"]
         estado = "q_unid_2"; unidade = "2"
@@ -120,7 +127,8 @@ class ADF
       in ["V", "q_milhar_0"] | ["V", "q_milhar_1000"] | ["V", "q_milhar_2000"] | ["V", "q_milhar_3000"] |
          ["V", "q_centena_100"] | ["V", "q_centena_500"] | ["V", "q_dezena_10"] | ["V", "q_dezena_40"] |
          ["V", "q_dezena_50"] | ["V", "q_dezena_90"]
-        estado = "q_unid_5"; unidade = "5"
+        
+         estado = "q_unid_5"; unidade = "5"
 
       in ["I", "q_unid_5"]
         estado = "q_unid_6"; unidade = "6"
