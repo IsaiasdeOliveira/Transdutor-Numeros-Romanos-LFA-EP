@@ -2,12 +2,12 @@
 
 Este projeto foi desenvolvido para a disciplina de Linguagens Formais e Autômatos (LFA). Trata-se de um Autômato Finito Determinístico (AFD) do tipo Transdutor de Moore, projetado para realizar a análise sintática e a conversão de numerais romanos (no intervalo de 1 a 3999) para o sistema decimal.
 
-## 🎯 Funcionalidades
+## Funcionalidades
 - **Validação Sintática**: O autômato garante que a entrada respeite as regras de formação dos numerais romanos, rejeitando sequências como repetições inválidas ou ordens incorretas.
 - **Conversão por Transdução**: O transdutor processa os símbolos e associa a transição de estados a uma saída de símbolo decimal correspondente.
 - **Estrutura Hierárquica**: A modelagem é dividida em blocos decrescentes de grandeza (Milhares, Centenas, Dezenas e Unidades), garantindo o determinismo.
 
-## 📐 Definição Formal (6-tupla)
+## Definição Formal (6-tupla)
 O transdutor é definido como $M = (Q, \Sigma, \Gamma, \delta, \lambda, q_0)$, onde:
 - **Q**: Conjunto finito de estados representando as potências de 10 e regras subtrativas.
 - **$\Sigma$ (Alfabeto de Entrada)**: {I, V, X, L, C, D, M}.
@@ -16,12 +16,12 @@ O transdutor é definido como $M = (Q, \Sigma, \Gamma, \delta, \lambda, q_0)$, o
 - **$\lambda$ (Função de Saída)**: $\lambda: Q \to \Gamma$ (Modelo de Moore).
 - **$q_0$ (Estado Inicial)**: `q_milhar_0`.
 
-## 🧠 Justificativa do Modelo de Moore
+## Justificativa do Modelo de Moore
 A escolha pelo modelo de Moore fundamenta-se na clareza da associação entre o estado e o valor semântico do numeral. 
 - **Lógica de Estado**: No modelo de Moore, a saída é uma função exclusiva do estado atual. Isso facilita a visualização da "posição" do processamento (ex: saber que a máquina já processou as centenas e está nas dezenas).
 - **Eficiência vs. Clareza**: Embora o modelo de Mealy possa reduzir o número total de estados ao associar a saída às transições, o modelo de Moore oferece uma implementação mais intuitiva para conversores de base, onde cada estado final de um bloco decimal representa um acúmulo de valor estático e bem definido.
 
-## 📝 Notas Técnicas sobre o Fluxo e Implementação
+## Notas Técnicas sobre o Fluxo e Implementação
 
 ### Processamento de Saída e Concatenação
 Para manter a integridade teórica do Transdutor de Moore e evitar o uso de acumuladores aritméticos durante o processamento, a implementação segue estas premissas:
@@ -30,13 +30,13 @@ Para manter a integridade teórica do Transdutor de Moore e evitar o uso de acum
 * **Ausência de Operações Aritméticas**: O autômato **não realiza somas** enquanto percorre os estados. A lógica é baseada na identificação e armazenamento de símbolos de saída ($\Gamma$).
 * **Justificativa do `.to_i`**: O método `.to_i` (conversão para inteiro) é utilizado **exclusivamente na interface de exibição final**, após o encerramento do autômato. Ele serve apenas para "limpar" strings vazias e unir os símbolos emitidos em um formato decimal legível para o usuário, funcionando como uma lógica de apresentação e não de processamento interno.
 
-## 📊 Modelagem do Autômato
+## Modelagem do Autômato
 
 A modelagem detalhada do Transdutor de Moore, incluindo o diagrama de estados e as transições de salto, pode ser visualizada no link abaixo:
 
-👉 [Visualizar Modelagem e Diagrama Mermaid](./docs/Modelagem.md)
+[Visualizar Modelagem e Diagrama Mermaid](./docs/Modelagem.md)
 
-## 🧪 Demonstração de Fluxo e Validação
+## Demonstração de Fluxo e Validação
 
 ### 1. Exemplos de Sucesso (Emissão de Símbolos $\Gamma$)
 Nestes casos, a máquina percorre a hierarquia de estados e, ao processar o caractere de fim de fita, emite a união dos símbolos traduzidos.
@@ -59,7 +59,7 @@ Nestes casos, a máquina percorre a hierarquia de estados e, ao processar o cara
 
 ---
 
-## 🚀 Execução 
+## Execução 
 Certifique-se de ter o interpretador Ruby instalado no ambiente.
 1. Navegue até o diretório do projeto via terminal.
 2. Execute o script principal:
